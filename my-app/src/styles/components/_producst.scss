@@ -1,0 +1,28 @@
+
+.products_container{
+    padding-top: 55px;
+
+    h1{
+        text-align: center;
+    }
+    p{
+        text-align: center;
+    }
+}
+
+.products_cards{
+    margin-top: 40px;
+    display: grid;
+    flex-direction: row;
+    align-content: center;
+    grid-template-columns: repeat(4, 1fr);
+    padding-left: 5%;
+}
+
+.products_categories{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 55%;
+    margin-left: 22%;
+}

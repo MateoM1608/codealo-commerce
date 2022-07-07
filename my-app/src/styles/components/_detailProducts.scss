@@ -1,0 +1,45 @@
+
+.detail_container{
+    padding-top: 55px;
+
+}
+
+.detail_alldetail{
+    display: flex;
+    flex-direction: row ;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0px 0px 20px rgba(56, 56, 56, 0.39);
+
+    img{
+        width: 45%;
+    }
+
+    div{
+        margin: 35px;
+
+        h1{
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        p{
+            text-align: justify;
+            margin: 55px;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+
+            button{
+                color:red
+            }
+        }
+    }
+}

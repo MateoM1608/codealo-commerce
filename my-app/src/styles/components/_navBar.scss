@@ -1,0 +1,44 @@
+
+.navBar_Container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 40px;
+    align-items: center;
+    padding-left: 25px;
+    position: fixed;
+    z-index: 100;
+    width: 96%;
+}
+
+.navBar_home{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    height: 100%;
+
+    h3{
+        cursor: pointer;
+    }
+}
+
+.navBar_user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+
+    h2{
+        font-size: 20px;
+        margin-left: -15px;
+    }
+
+    h3{
+        font-size: 20px;
+        cursor: pointer;
+    }
+}

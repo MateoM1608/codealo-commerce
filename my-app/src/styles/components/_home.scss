@@ -1,0 +1,22 @@
+
+
+.home_container{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.home_banner{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.home_cards{
+    margin-top: 40px;
+    display: grid;
+    flex-direction: row;
+    align-content: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding-left: 10%;
+}
