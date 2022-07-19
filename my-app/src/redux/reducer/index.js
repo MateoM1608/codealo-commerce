@@ -3,8 +3,11 @@ import Swal from 'sweetalert2'
 const initialState = {
     allProducts: [],
     products:[],
-    detailProducts: [],
+    detailProduct: [],
     categories: [],
+    car: [],
+    carRaw: [],
+    orders: []
 
 }
 
@@ -34,7 +37,6 @@ function rootReducer(state = initialState, action){
                 products: productsFilter
             }
         case "LOG_IN":
-            console.log('resultad',action.payload)
             localStorage.setItem("userInfo", JSON.stringify(action.payload));
             Swal.fire({
                 position: 'center',
@@ -42,8 +44,31 @@ function rootReducer(state = initialState, action){
                 title: 'Iniciaste sesión correctamente',
                 showConfirmButton: false,
                 timer: 1500
-              })
+              }).then(window.location.replace(''))
+              
             break;
+        case "SIGN_IN":
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Usuario creado correctamente',
+                showConfirmButton: false,
+                timer: 1500
+              }).then(window.location.replace(''));
+              break;
+        case "GET_CAR_BY_ID":
+            let carrito = []
+            action.payload.products_in_cart.map(c => carrito.push({product:{id: c.product.id},quantity: c.quantity }))
+            return{
+                ...state,
+                car : action.payload,
+                carRaw: carrito
+            }
+        case "GET_ORDERS":
+            return{
+                ...state,
+                orders: action.payload
+            }
         default:
             return { ...state};
     }

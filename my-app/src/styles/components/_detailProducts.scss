@@ -11,35 +11,87 @@
     margin: 20px;
     box-shadow: 0px 0px 20px rgba(56, 56, 56, 0.39);
 
+
     img{
-        width: 45%;
+        height: 80vh;
+        margin-left: 150px  ;
     }
 
     div{
         margin: 35px;
+        width: 100%;
 
         h1{
             text-align: center;
             margin-top: 50px;
+            font-family: $fuente;
+            color: $primary_color;
         }
 
         p{
-            text-align: justify;
+            text-align: center;
             margin: 55px;
+            font-family: $fuente;
         }
 
         h2{
             text-align: center;
+            font-family: $fuente;
         }
 
         div{
             display: flex;
             flex-direction: row;
             justify-content: space-evenly;
+            margin: 10px;
 
-            button{
-                color:red
+            h3{
+                background-color: white;
+                border: 1px solid $primary_color;
+                color: $primary_color;
+                padding: 6px;
+                font-family: $fuente;
+                font-weight: 400;
+                border-radius: 10px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: $primary_color;
+                    color: white;
+                }
+            }
+
+            h4{
+                background-color: $primary_color;
+                border: 1px solid $primary_color;
+                color: white;
+                padding: 6px;
+                font-family: $fuente;
+                font-weight: 400;
+                border-radius: 10px;
+                cursor: pointer;
+                
+
+                &:hover{
+                    background-color: white;
+                    color: $primary_color;
+                }
             }
         }
     }
+
+    @media screen and (max-width: $phone){
+        flex-direction: column;
+
+        img{
+            margin-left: 0px;
+            height: 50vh;
+        }
+
+        div{
+            margin: 0px;
+        }
+    }
+
+
 }

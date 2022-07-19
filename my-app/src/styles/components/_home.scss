@@ -1,15 +1,36 @@
-
+body{
+    margin: 0px;
+}
 
 .home_container{
     padding-top: 50px;
     display: flex;
     flex-direction: column;
+    
+    @media screen and (max-width: $phone){
+    width: 100%;
+    }
 
+    h1{
+        font-family: $fuente;
+        font-weight: 600;
+        text-align: center;
+        color: $primary_color;
+        cursor: pointer;
+
+        &:hover{
+            color: $secondary_color;
+        }
+    }
 }
 
 .home_banner{
     width: 100%;
     border-radius: 10px;
+
+    @media screen and (max-width: $phone){
+        width: 100%;
+    }
 }
 
 .home_cards{
@@ -19,4 +40,12 @@
     align-content: center;
     grid-template-columns: repeat(3, 1fr);
     padding-left: 10%;
+
+    @media screen and (max-width: $phone){
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-left: 10%;
+    }
 }

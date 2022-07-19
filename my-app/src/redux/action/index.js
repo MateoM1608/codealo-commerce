@@ -37,23 +37,63 @@ export const postLogIn =  (datas) => async(dispatch) => {
     }
 }
 
-
-
-
 export const LogOut = () => {
     localStorage.removeItem("userInfo")
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'Su sesión se cerro correctamente',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(window.location.replace(''))
 }
 
 
-export const postSignIn = (data) => dispatch =>{
-    axios.post(`https://codealo-commerce-cms.onrender.com/auth/local/register`, data)
-    .then( res => dispatch({ type: "SIGN_IN", payload: res.data}))
-    .catch(
+export const postSignIn = (datas) => async(dispatch) =>{
+
+    try{
+        const {data} = axios.post(`https://codealo-commerce-cms.onrender.com/auth/local/register`, datas)
+        dispatch({ type: "SIGN_IN", payload: data})
+    }
+
+    catch(err){
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
             text: 'Hubo un error, ingresa un correo electrónico valido!',
             footer: '<a href=""></a>'
             })
-    )
+        }
+}
+
+
+export const GetCarById = (id) => dispatch => {
+    axios.get(`https://codealo-commerce-cms.onrender.com/carts/${id}`)
+    .then( res => dispatch({ type : "GET_CAR_BY_ID", payload: res.data}))
+}
+
+export const changeCarById = (id, body) => dispatch => {
+    axios.put(`https://codealo-commerce-cms.onrender.com/carts/${id}`, body)
+    .then( res => dispatch({ type : "GET_CAR_BY_ID", payload: res.data}))
+}
+
+export const createOrder = (body, header) => dispatch => {
+    let config = {
+        headers: {
+            Authorization : `Bearer ${header}`
+        }
+    }
+    axios.post(`https://codealo-commerce-cms.onrender.com/orders`, body , config)
+    .then(res => console.log('respuesta compra',res))
+}
+
+export const getOrders = (header) => dispatch => {
+    let config = {
+        headers: {
+            Authorization : `Bearer ${header}`
+        }
+    }
+    axios.get(`https://codealo-commerce-cms.onrender.com/orders`, config)
+    .then(res => dispatch({type: "GET_ORDERS", payload: res.data}))
+    console.log('funca orders')
 }

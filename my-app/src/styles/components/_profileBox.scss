@@ -1,0 +1,32 @@
+
+.box_container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    background-color: white;
+    border: 1px solid grey;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 6px;
+
+
+    h3 {
+        font-family: $fuente;
+        font-size: 18px;
+        font-weight: 400;
+        margin: 5px;
+        cursor: pointer;
+
+        &:hover{
+            font-weight: 600;
+        }
+    }
+}
+
+.box_container_hidden{
+    display: none;
+}

@@ -4,9 +4,16 @@
 
     h1{
         text-align: center;
+        font-family: $fuente;
+        font-weight: 800;
+        font-size: 35px;
     }
     p{
         text-align: center;
+        font-family: $fuente;
+        font-weight: 400;
+        font-size: 20px;
+        color: $primary_color;
     }
 }
 
@@ -17,6 +24,10 @@
     align-content: center;
     grid-template-columns: repeat(4, 1fr);
     padding-left: 5%;
+
+    @media screen and (max-width: $phone){
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .products_categories{
@@ -25,4 +36,29 @@
     justify-content: space-evenly;
     width: 55%;
     margin-left: 22%;
+
+    button{
+        background-color: $primary_color;
+        border: 1px solid $primary_color;
+        border-radius: 10px;
+        color: white;
+        padding: 6px;
+        font-family: $fuente;
+        font-size: 15px;
+        cursor: pointer;
+
+        &:hover{
+            background-color: $secondary_color;
+        }
+
+        @media screen and (max-width: $phone){
+
+            font-size: 10px;
+        }
+
+    }
+    @media screen and (max-width: $phone){
+        width: 100%;
+        margin-left: 0px;
+    }
 }

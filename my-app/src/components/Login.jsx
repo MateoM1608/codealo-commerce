@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { postLogIn } from '../redux/action/index'
 import Swal from 'sweetalert2'
 
-const LogIn = ({isOpenLogin, toggleModalLogin}) => {
+const LogIn = ({isOpenLogin, toggleModalLogin, reload}) => {
 
     const dispatch = useDispatch()
     const [ estado , setEstado ] = useState({
@@ -24,6 +24,7 @@ const LogIn = ({isOpenLogin, toggleModalLogin}) => {
         if(estado.identifier &&  estado.password){
             dispatch(postLogIn(estado))
             toggleModalLogin()
+            
         }else{
             Swal.fire({
                 icon: 'error',

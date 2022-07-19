@@ -3,26 +3,58 @@
     width: 250px;
     border-radius: 20px;
     border: 1px solid rgba(128, 128, 128, 0.582);
-    cursor: pointer;
     margin-bottom: 15px;
+    transition: .3s ease;
+
+
+    &:hover{
+        box-shadow: 0px 0px 30px rgba(83, 83, 83, 0.527);
+        transition: .3s ease;
+
+    }
 
     img{
         width: 80%;
         margin-bottom: -20px;
         margin-left: 10%;
         margin-top: 10px;
+        cursor: pointer;
     }
     h2{
         text-align: center;
         margin-bottom: -15px;
+        cursor: pointer;
     }
     h3{
         text-align: center;
         margin-bottom: 20px;
+        cursor: pointer;
     }
+
     div{
         display: flex;
         justify-content: space-evenly;
         padding-bottom: 20px;
+
+        button{
+            font-family: $fuente;
+            font-weight: 400;
+            font-size: 12px;
+            background-color: $primary_color;
+            border: 0px;
+            padding: 6px;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            
+            &:hover{
+                background-color: $secondary_color;
+                font-weight: 600;
+            }
+        }
+    }
+
+    @media screen and (max-width: $phone){
+        width: 80%;
     }
 }

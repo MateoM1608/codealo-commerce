@@ -3,17 +3,21 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import banner from '../assets/images/TECHSHOP.png'
 import CardProduct from '../components/CardProduct'
-import {getAllProducts } from '../redux/action/index'
+import {getAllProducts, GetCarById } from '../redux/action/index'
+import Swal from 'sweetalert2'
 
 const Home = () => {
 
     const dispatch = useDispatch()
-    const products = useSelector(state => state.products)
+    const products = useSelector(state => state.products);
     const userSignIn = useSelector((state) => state.userSignIn);
-
+    const carRaw = useSelector(state => state.carRaw)
     const { userInfo } = userSignIn;
-    
-    console.log('jwt',userInfo )
+
+
+    let raw = null;
+    carRaw ? raw = carRaw : raw = null
+
 
     useEffect(() => {
         dispatch(getAllProducts())
@@ -36,6 +40,8 @@ const Home = () => {
                                 imgName={p.image.name}
                                 slug={p.slug}
                                 userInfo={userInfo}
+                                idP={p.id}
+                                raw={raw}
                             />
                         </div>
                     ))

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import Swal from 'sweetalert2'
 import { postSignIn} from '../redux/action/index'
 
-const SignUp = ({toggleModalSignUp, isOpenSignUp}) => {
+const SignUp = ({toggleModalSignUp, isOpenSignUp, reload}) => {
 
     const dispatch = useDispatch()
     const [ estado , setEstado ] = useState({

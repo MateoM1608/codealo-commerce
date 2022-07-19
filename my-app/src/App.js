@@ -1,6 +1,7 @@
-import React, {useState}from 'react';
+import React, {useState, useEffect}from 'react';
 import { Route, Routes } from 'react-router-dom';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { GetCarById } from './redux/action/index'
 import Home from './pages/Home'
 import Products from './pages/Products';
 import DetailProducts from './pages/DetailProducts';
@@ -10,15 +11,18 @@ import Navbar from './components/Navbar';
 import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import ModalLogOut from './components/ModalLogOut'
+import Thanks from './pages/Thanks';
+
 
 
 function App() {
 
+  const dispatch = useDispatch()
   const [ isOpenLogin, setIsOpenLogin ] = useState(false)
   const [ isOpenSignUp, setIsOpenSignUp ] = useState(false)
   const [ isOpenLogOut, setIsOpenLogOut ] = useState(false)
   const userSignIn = useSelector((state) => state.userSignIn);
-
+  
   const { userInfo } = userSignIn;
 
   const toggleModalLogin = () =>{
@@ -33,9 +37,15 @@ function App() {
     setIsOpenLogOut(!isOpenLogOut)
   }
 
+  useEffect(() => {
+    if(userInfo){
+        dispatch(GetCarById(userInfo.user.id))
+    }
+  },[])
+
 
   return (
-    <>
+    <div  className='body_app'>
       <Navbar
         toggleModalSignUp={toggleModalSignUp}
         toggleModalLogin={toggleModalLogin}
@@ -49,8 +59,7 @@ function App() {
         <Route exact path="/productos/:slug" element={<DetailProducts/>}/>
         <Route exact path="/comprar" element={<Purchase/>}/>
         <Route exact path="/compras" element={<HistoryShopping />} />
-        {/* <Route exact path="/login" element={<Login/>}/> */}
-        {/* <Route exact path="/registrar" element={<SignUp/>}/> */}
+        <Route exact path="/gracias" element={<Thanks />} />
 
       </Routes>
 
@@ -66,7 +75,7 @@ function App() {
         toggleModalLogOut={toggleModalLogOut}
         isOpenLogOut={isOpenLogOut}
       />
-    </>
+    </ div>
   );
 }
 

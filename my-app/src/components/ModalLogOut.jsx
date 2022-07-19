@@ -3,21 +3,15 @@ import { useDispatch } from "react-redux";
 import { LogOut } from '../redux/action/index'
 import Swal from 'sweetalert2'
 
-const ModalLogOut = ({toggleModalLogOut, isOpenLogOut}) => {
+const ModalLogOut = ({toggleModalLogOut, isOpenLogOut, reload}) => {
 
 
     const dispatch = useDispatch()
 
     const handleLogOut = () => {
-        Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Su sesión se cerro correctamente',
-            showConfirmButton: false,
-            timer: 1500
-          })
         dispatch(LogOut())
-        toggleModalLogOut()
+
+        
     }
 
     return (

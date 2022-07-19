@@ -8,14 +8,17 @@ const Products = () => {
 
     const AllProducts = useSelector(state =>  state.products)
     const AllCategories = useSelector( state => state.categories)
+    const carRaw = useSelector(state => state.carRaw)
+    const userSignIn = useSelector((state) => state.userSignIn);
+    const { userInfo } = userSignIn;
     const dispatch = useDispatch()
-    console.log('categorias', AllCategories)
-    console.log('products',AllProducts )
 
     const handleClick = (category) => {
         dispatch(filterByCategoria(category))
-        console.log('funca')
     }
+
+    let raw = null;
+    carRaw ? raw = carRaw : raw = null
 
 
     useEffect(() => {
@@ -48,6 +51,9 @@ const Products = () => {
                                 price={p.price}
                                 imgName={p.image.name}
                                 slug={p.slug}
+                                idP={p.id}
+                                raw={raw}
+                                userInfo={userInfo}
                             />
                         </div>
                     ))
