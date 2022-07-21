@@ -12,6 +12,7 @@ import LogIn from './components/LogIn';
 import SignUp from './components/SignUp';
 import ModalLogOut from './components/ModalLogOut'
 import Thanks from './pages/Thanks';
+import Sidebar from './components/Sidebar';
 
 
 
@@ -21,9 +22,14 @@ function App() {
   const [ isOpenLogin, setIsOpenLogin ] = useState(false)
   const [ isOpenSignUp, setIsOpenSignUp ] = useState(false)
   const [ isOpenLogOut, setIsOpenLogOut ] = useState(false)
+  const [ isOpenSidebar , setIsOpenSidebar ] = useState(false)
   const userSignIn = useSelector((state) => state.userSignIn);
   
   const { userInfo } = userSignIn;
+
+  const toggleSidebar = () => {
+    setIsOpenSidebar(!isOpenSidebar)
+  }
 
   const toggleModalLogin = () =>{
     setIsOpenLogin(!isOpenLogin)
@@ -51,6 +57,17 @@ function App() {
         toggleModalLogin={toggleModalLogin}
         toggleModalLogOut={toggleModalLogOut}
         userInfo={userInfo}
+        toggleSidebar={toggleSidebar}
+      />
+
+
+      <Sidebar 
+        toggleModalSignUp={toggleModalSignUp}
+        toggleModalLogin={toggleModalLogin}
+        toggleModalLogOut={toggleModalLogOut}
+        userInfo={userInfo}
+        toggleSidebar={toggleSidebar}
+        isOpenSidebar={isOpenSidebar}
       />
       <Routes>
 

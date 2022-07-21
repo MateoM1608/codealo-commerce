@@ -159,5 +159,17 @@
 }
 
 .navNar_quantity_hidden{
-    visibility: hidden;
+    display: none;
 }
+
+.hamburguer_Menu{
+    cursor: pointer;
+    display: none;
+    margin-right: 40px;
+    
+
+    @media (max-width: 768px) {
+      display: flex;
+    }
+}
+

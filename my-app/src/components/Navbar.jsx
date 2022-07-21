@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import { Link, useNavigate } from 'react-router-dom'
 import { GiShoppingCart } from 'react-icons/gi'
 import { FaRegUser } from 'react-icons/fa'
+import {GiHamburgerMenu} from 'react-icons/gi'  
 import ProfileBox from "./ProfileBox";
 
 
-const Navbar = ({toggleModalSignUp, toggleModalLogin, userInfo, toggleModalLogOut}) => {
+const Navbar = ({toggleModalSignUp, toggleModalLogin, userInfo, toggleModalLogOut, toggleSidebar}) => {
 
     const [ isScrolled, setIsScrolled ] = useState(false)
     const [ isOpen , setIsOpen ] = useState(false)
@@ -66,7 +67,11 @@ const Navbar = ({toggleModalSignUp, toggleModalLogin, userInfo, toggleModalLogOu
                         isOpen={isOpen}
                         handleHistory={handleHistory}
                         toggleModalLogOut={toggleModalLogOut}
+                        toggleIsOpen={toggleIsOpen}
                     />
+                    <div onClick={() => toggleSidebar()} className="hamburguer_Menu">
+                        <GiHamburgerMenu size={20} style={!isScrolled ? { color: "#315b5b" } : { color: "white" }}/>
+                    </div>
                 </div>
                 :
                 <div className={ !isScrolled ? "navbar_container" : "navbar_container_scroll"}>
@@ -75,10 +80,13 @@ const Navbar = ({toggleModalSignUp, toggleModalLogin, userInfo, toggleModalLogOu
                             <h1>TechShop</h1>
                         </Link>
                     </div>
+                    <div onClick={() => toggleSidebar()} className="hamburguer_Menu">
+                        <GiHamburgerMenu size={20} style={!isScrolled ? { color: "#315b5b" } : { color: "white" }}/>
+                    </div>
                     <div className={ !isScrolled ? "navBar_home" : "navBar_home_scroll"}>
                         <h5 onClick={() => toggleModalLogin()}>Iniciar sesión</h5>
                         <h4 onClick={() => toggleModalSignUp() }>Registrarse</h4>
-                        <GiShoppingCart size={20} style={{ color: "rgb(209, 209, 209)" }} />
+                        <GiShoppingCart onClick={() => handleCart()} size={20} style={{ color: "rgb(209, 209, 209)", cursor:"pointer" }}/>
                     </div>
                 </div>
             }

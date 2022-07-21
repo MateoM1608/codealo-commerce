@@ -13,7 +13,9 @@ const HistoryShopping = () => {
     console.log('orders', orders)
 
     useEffect(()=>{
-        dispatch(getOrders(userInfo.jwt))
+        if(userInfo){
+            dispatch(getOrders(userInfo.jwt))
+        }
     },[])
 
     return(
@@ -51,7 +53,7 @@ const HistoryShopping = () => {
                     }
                 </div>
                 :
-                <div className="history_div">
+                <div className="history_unsuscribe">
                     <h1>iniciar sesión para ver historial de compras</h1>
                 </div>
             }

@@ -20,8 +20,8 @@ const ModalLogOut = ({toggleModalLogOut, isOpenLogOut, reload}) => {
                 <h1>Cerrar sesión</h1>
                 <p>¿Está seguro de que desea cerrar la sesión?</p>
                 <div>
-                    <button onClick={() => handleLogOut()}>Si</button>
-                    <button onClick={() => toggleModalLogOut()}>No</button>
+                    <button className="logOut_btn1" onClick={() => handleLogOut()}>Si</button>
+                    <button  className="logOut_btn2" onClick={() => toggleModalLogOut()}>No</button>
                 </div>
             </div>
         </div>

@@ -35,3 +35,15 @@
         }
     }
 }
+
+.history_unsuscribe{
+    text-align: center;
+    font-family: $fuente;
+    font-weight: 400;
+    margin-top: 200px;
+
+
+    @media screen and (max-width: $phone){
+        font-size: 12px;
+    }
+}

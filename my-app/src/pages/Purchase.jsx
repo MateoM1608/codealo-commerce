@@ -155,7 +155,7 @@ const Purchase = () => {
                 <div> 
                     {
                         carrito && carrito.length === 0 ?
-                        <div className="purchase_div">
+                        <div className="purchase_none">
                             <h1>Tu carrito actualmente esta vacio</h1>
                             <p>¿No sabes que comprar?</p>
                             <button onClick={() => handleClick()}>Ir a todos los productos</button>
@@ -180,16 +180,16 @@ const Purchase = () => {
                                 ))
                             }
                             <hr></hr>
-                            <div>
+                            <div className="purchase_pay">
                                 <h2>Total a pagar</h2>
                                 <h1>{`$${result}`}</h1>
                             </div>
-                            <button onClick={() => handlPay()}>Pagar</button>
+                            <button className="purchase_button" onClick={() => handlPay()}>Pagar</button>
                         </div>
                     }
                 </div>
                 :
-                <div>
+                <div className="purshase_unsuscribe">
                     <h1>Inicia sesón para entrar al carrito</h1>
                 </div>
             }

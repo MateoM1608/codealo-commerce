@@ -16,7 +16,7 @@ const Thanks = () => {
         <div className="thanks_container">
             <h1>GRACIAS POR TU COMPRA</h1>
             <h2>Podrás encontrar el resumen de tu compra <span onClick={() => handleHistory()}>aquí</span></h2>
-            <h3 onClick={() => handleProducts()}>Comprar otros productos</h3>
+            <button onClick={() => handleProducts()}>Comprar otros productos</button>
         </div>
     )
 }

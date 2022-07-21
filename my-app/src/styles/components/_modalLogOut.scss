@@ -24,10 +24,13 @@
 
         h1{
             text-align: center;
+            font-family: $fuente;
         }
 
         p{
             text-align: center;
+            font-family: $fuente;
+            font-weight: 400;
         }
 
         div{
@@ -41,5 +44,37 @@
         button{
             width: 50px;
         }
+
+        @media screen and (max-width: $phone){
+            width: 90%;
+        }
+    }
+}
+
+.logOut_btn1{
+    width: 50px;
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: 10px;
+    cursor: pointer;
+
+    @media screen and (max-width: $phone){
+        margin-top: 30px;
+        height: 30px;
+    }
+}
+
+.logOut_btn2{
+    width: 50px;
+    background-color: rgb(41, 171, 41);
+    color: white;
+    border: 1px solid rgb(41, 171, 41);
+    border-radius: 10px;
+    cursor: pointer;
+    
+    @media screen and (max-width: $phone){
+        margin-top: 30px;
+        height: 30px;
     }
 }

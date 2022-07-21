@@ -19,10 +19,23 @@
         background-color: white;
         border-radius: 10px;
 
+
+        button{
+            background-color: transparent;
+            border: 0px;
+            cursor: pointer;
+            margin-top: 5px;
+
+            &:hover{
+                font-weight: 700;
+            }
+        }
+
         h1{
             text-align: center;
             font-size: 25px;
-            margin-top: 0px;
+            margin-top: 0px; 
+            font-family: $fuente;
         }
 
         form{
@@ -32,6 +45,8 @@
 
             label{
                 margin-bottom: 5px;
+                font-family: $fuente;
+                font-weight: 400;
             }
 
             input{
@@ -45,7 +60,23 @@
                 margin-top: 10px;
                 width: 50%;
                 margin-left: 25%;
+                background-color: $primary_color;
+                color: white;
+                border: 1px solid $primary_color;
+                border-radius: 10px;
+                padding: 5px;
+                font-size: 16px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: $secondary_color;
+                }
             }
+
+        }
+        @media screen and (max-width: $phone){
+            width: 80%;
+            height: 40%;
         }
     }
 }
